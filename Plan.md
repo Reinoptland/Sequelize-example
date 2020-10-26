@@ -98,3 +98,28 @@ What do we need to do:
   - `npx sequelize-cli db:seed:all`
 - [x] Update the Model
   - Add fields for email & lastName
+
+### What 3 common pitfalls when working with Sequelize-cli
+
+#### Plural / Singular
+
+users / user
+
+Model: Singular (user)
+Table: Plural (users)
+Seeders: BulkInsert(Plural) (users)
+
+#### Adding ids when seeding
+
+- Don't code ids in seeders, postgres does not know you used them
+- It will try to create new records with the same ids
+
+#### You wrote up, but not down
+
+- In migrations / seeders always write both up & down
+
+#### You wrote a migration, but you did not update your Model
+
+- Example: you add column email
+- You request all users, email does not show
+- Solution: add the email field to your model
