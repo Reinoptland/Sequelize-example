@@ -13,11 +13,14 @@
 
 - How to use Sequelize / Sequelize-cli to:
 
-  - Define the tables in our database
-  - Insert data into our database for testing
-  - Extract data from our database to use as part of an express server
+  - Define the tables in our database -> Migrations
+  - Insert data into our database for testing -> Seeders
+  - Extract data from our database to use as part of an express server -> Model
 
 - What are the differences between Migrations & Models
+
+  - Migration: History of the table
+  - Model: Current structure of the table
 
 - What 3 common pitfalls when working with Sequelize-cli
   - Plural / Singular
@@ -68,7 +71,7 @@ to
 
 - [x] Create a Model & a Migration
   - Sequelize-cli: `npx sequelize-cli model:generate --name user --attributes firstName:string`
-  - Migrate the database -> Creates the table
+  - Migrate the database -> Creates the table, `npx sequelize-cli db:migrate`
   - Check in GUI to see, does our table exist? (remember to refresh)
 - [x] Seed the database -> putting the data in the database
   - Generate a seed: `npx sequelize-cli seed:generate --name seed-users`
@@ -77,3 +80,20 @@ to
   - Check in GUI, do we have data (remember to refresh)
 - [x] Import the Model
   - Query the database using the Model (findAll())
+
+### Extend the data model for a user
+
+Product Owner:
+
+- We would like to also store lastName & email, can you make that happen?
+
+What do we need to do:
+
+- [x] Create a new migration
+  - Migration "Skeleton", up, down etc...
+    -> `npx sequelize-cli migration:generate --name add-lastname-email-to-users`
+  - Add the 2 columns, lastName & email
+- [x] Update the seed files
+  - `npx sequelize-cli db:seed:undo`
+  - `npx sequelize-cli db:seed:all`
+- Update the Model
