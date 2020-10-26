@@ -11,14 +11,17 @@ const users = [
   { id: 3, firstName: "Eszter" },
 ];
 
+// http://localhost:4000/users?firstName=Rein
 app.get("/users", async (req, res) => {
-  const users = await User.findAll(); // all users
+  console.log("REQ.QUERY:", req.query);
+
+  const users = await User.findAll({ where: req.query }); // all users
   res.json(users);
 });
 
-app.get("/users/:userId", (req, res) => {
+app.get("/users/:userId", async (req, res) => {
   const userId = parseInt(req.params.userId);
-  const user = users.find((user) => user.id === userId);
+  const user = await User.findByPk(userId);
 
   if (user) {
     res.json(user);

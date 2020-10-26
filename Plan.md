@@ -92,7 +92,7 @@ What do we need to do:
 - [x] Create a new migration
   - Migration "Skeleton", up, down etc...
     -> `npx sequelize-cli migration:generate --name add-lastname-email-to-users`
-  - Add the 2 columns, lastName & email
+  - Add the 2 columns, lastName & email (specify change for up & down)
 - [x] Update the seed files
   - `npx sequelize-cli db:seed:undo`
   - `npx sequelize-cli db:seed:all`
