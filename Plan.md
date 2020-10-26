@@ -28,7 +28,7 @@
 - Extend the data model for a user
 - Implement searching by firstName
 
-## Model
+## Model (singular)
 
 - What the data model for user (right now) -> name, email etc
 - Model we use to query data ...
@@ -50,7 +50,9 @@ What do we need?
   - `npx sequelize-cli init` -> folders & config files
   - Edit config/config.json -> add the url of your database
 - [x] Create a Model & a Migration
-  - Migrate the database
+  - Sequelize-cli: `npx sequelize-cli model:generate --name user --attributes firstName:string`
+  - Migrate the database -> Creates the table
+  - Check in GUI to see, does our table exist? (remember to refresh)
 - Seed the database -> putting the data in the database
   - Write scripts that seed data
   - "Running" the scripts that seed the data?
