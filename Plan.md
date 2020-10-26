@@ -96,4 +96,5 @@ What do we need to do:
 - [x] Update the seed files
   - `npx sequelize-cli db:seed:undo`
   - `npx sequelize-cli db:seed:all`
-- Update the Model
+- [x] Update the Model
+  - Add fields for email & lastName
