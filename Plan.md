@@ -53,7 +53,9 @@ What do we need?
   - Sequelize-cli: `npx sequelize-cli model:generate --name user --attributes firstName:string`
   - Migrate the database -> Creates the table
   - Check in GUI to see, does our table exist? (remember to refresh)
-- Seed the database -> putting the data in the database
+- [x] Seed the database -> putting the data in the database
+  - Generate a seed: `npx sequelize-cli seed:generate --name seed-users`
   - Write scripts that seed data
-  - "Running" the scripts that seed the data?
+  - "Running" the scripts that seed the data? `npx sequelize-cli db:seed:all`
+  - Check in GUI, do we have data (remember to refresh)
 - Import the Model, query the database using the Model
