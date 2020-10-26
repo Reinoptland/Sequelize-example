@@ -49,6 +49,23 @@ What do we need?
   - Install dependencies: sequelize, sequelize-cli & pg
   - `npx sequelize-cli init` -> folders & config files
   - Edit config/config.json -> add the url of your database
+  - In models/index.js -> change
+
+```
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
+```
+
+to
+
+```
+  sequelize = new Sequelize(config.url, config);
+```
+
 - [x] Create a Model & a Migration
   - Sequelize-cli: `npx sequelize-cli model:generate --name user --attributes firstName:string`
   - Migrate the database -> Creates the table
@@ -58,4 +75,5 @@ What do we need?
   - Write scripts that seed data
   - "Running" the scripts that seed the data? `npx sequelize-cli db:seed:all`
   - Check in GUI, do we have data (remember to refresh)
-- Import the Model, query the database using the Model
+- [x] Import the Model
+  - Query the database using the Model (findAll())

@@ -1,4 +1,6 @@
 const express = require("express");
+const User = require("./models").user;
+// const user = require("./models/user"); // NO! will not be connected with the database
 
 const app = express();
 const port = 4000;
@@ -9,7 +11,8 @@ const users = [
   { id: 3, firstName: "Eszter" },
 ];
 
-app.get("/users", (req, res) => {
+app.get("/users", async (req, res) => {
+  const users = await User.findAll(); // all users
   res.json(users);
 });
 
